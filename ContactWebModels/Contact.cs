@@ -16,25 +16,32 @@ namespace ContactWebModels
         [Required(ErrorMessage = "Last Name is required")]
         [StringLength(ContactWebManagerConstants.MAX_LAST_NAME_LENGTH)]
         public string LastName { get; set; }
+
         [Display(Name = "Email Address")]
         [Required(ErrorMessage = "Email Address is required")]
         [StringLength(ContactWebManagerConstants.MAX_EMAIL_LENGTH)]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
+
         [Display(Name = "Mobile Phone")]
         [Required(ErrorMessage = "Phone Number is required")]
         [StringLength(ContactWebManagerConstants.MAX_PHONE_LENGTH)]
-        [EmailAddress(ErrorMessage = "Invalid Phone Address")]
+        [Phone(ErrorMessage = "Invalid Phone Number")]
         public string PhonePrimary { get; set; }
+
         [Display(Name = "Home/Office Phone")]
         [Required(ErrorMessage = "Phone Number is required")]
         [StringLength(ContactWebManagerConstants.MAX_PHONE_LENGTH)]
-        [EmailAddress(ErrorMessage = "Invalid Phone Address")] public string PhoneSecondary { get; set; }
+        [Phone(ErrorMessage = "Invalid Phone Number")]
+        public string PhoneSecondary { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime Birthday { get; set; }
+
         [Display(Name = "Street Adress Line 1")]
         [StringLength(ContactWebManagerConstants.MAX_STREET_ADDRESS_LENGTH)]
         public string StreetAddress1 { get; set; }
+
         [Display(Name = "Street Adress Line 2")]
         [StringLength(ContactWebManagerConstants.MAX_STREET_ADDRESS_LENGTH)]
         public string StreetAddress2 { get; set; }
@@ -42,10 +49,12 @@ namespace ContactWebModels
         [Required(ErrorMessage = "City is Required")]
         [StringLength(ContactWebManagerConstants.MAX_CITY_LENGTH)]
         public string City { get; set; }
+
         [Display(Name = "State")]
         [Required(ErrorMessage = "State is required")]
         public int StateId { get; set; }
         public virtual State State { get; set; }
+
         [Required(ErrorMessage = ("Zip Code is required"))]
         [Display(Name = "Zip Code")]
         [StringLength(ContactWebManagerConstants.MAX_ZIP_CODE_LENGTH, MinimumLength = ContactWebManagerConstants.MIN_ZIP_CODE_LENGTH)]
